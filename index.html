@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo Card</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main class="page">
+            <article data-testid="test-todo-card" class="card">
+                <!-- priority -->
+                <header class="card-topbar">
+                    <span class="project-crumb">
+                        <span class="crumb-dot"></span>
+                        Product Design
+                    </span>
+                    <span
+                        data-testid="test-todo-priority"
+                        aria-label="Priority: High"
+                        class="badge badge--high"
+                        >High</span
+                    >
+                </header>
+
+                <!-- ── Main content ── -->
+                <div class="card-body">
+                    <!-- Checkbox + title -->
+                    <div class="title-row">
+                        <label class="checkbox-wrap" for="todo-complete">
+                            <input
+                                type="checkbox"
+                                id="todo-complete"
+                                data-testid="test-todo-complete-toggle"
+                                aria-label="Mark task as complete"
+                            />
+                            <span class="checkbox-ui" aria-hidden="true">
+                                <svg
+                                    class="checkmark"
+                                    viewBox="0 0 10 10"
+                                    fill="none"
+                                    width="10"
+                                    height="10"
+                                >
+                                    <path
+                                        d="M1.5 5l2.5 2.5 4.5-4.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                            <span class="sr-only">Mark complete</span>
+                        </label>
+
+                        <h2
+                            id="todo-title"
+                            data-testid="test-todo-title"
+                            class="task-title"
+                        >
+                            Redesign the onboarding flow
+                        </h2>
+                    </div>
+
+                    <!-- Description -->
+                    <p data-testid="test-todo-description" class="task-desc">
+                        Map out the new user journey, update Figma wireframes,
+                        and align with the product team on key drop-off points
+                        before next week's review.
+                    </p>
+                </div>
+
+                <!-- Status + dates -->
+                <div class="card-meta">
+                    <span
+                        id="todo-status"
+                        data-testid="test-todo-status"
+                        aria-label="Status: In Progress"
+                        class="badge badge--status"
+                        >In Progress</span
+                    >
+
+                    <span class="meta-sep" aria-hidden="true"></span>
+
+                    <time
+                        data-testid="test-todo-due-date"
+                        datetime="2026-04-22T18:00:00Z"
+                        class="meta-date"
+                    >
+                        <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="1.5"
+                                y="2"
+                                width="9"
+                                height="8.5"
+                                rx="1.5"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                            />
+                            <path
+                                d="M1.5 5h9M4 1v2.5M8 1v2.5"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        Due Apr 18, 2026
+                    </time>
+
+                    <span
+                        id="time-remaining"
+                        data-testid="test-todo-time-remaining"
+                        aria-live="polite"
+                        class="time-chip"
+                        >—</span
+                    >
+                </div>
+
+                <!-- Tags  -->
+                <ul role="list" data-testid="test-todo-tags" class="tags-list">
+                    <li
+                        role="listitem"
+                        data-testid="test-todo-tag-work"
+                        class="tag"
+                    >
+                        work
+                    </li>
+                    <li
+                        role="listitem"
+                        data-testid="test-todo-tag-urgent"
+                        class="tag tag--urgent"
+                    >
+                        urgent
+                    </li>
+                    <li role="listitem" class="tag">design</li>
+                </ul>
+
+                <!--Actions  -->
+                <footer class="card-footer">
+                    <button
+                        data-testid="test-todo-edit-button"
+                        aria-label="Edit task"
+                        class="btn btn--edit"
+                        onclick="console.log('edit clicked')"
+                    >
+                        <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M9.5 1.5a1.5 1.5 0 0 1 2 2L4 11l-2.5.5.5-2.5 7.5-7.5z"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        Edit task
+                    </button>
+
+                    <button
+                        data-testid="test-todo-delete-button"
+                        aria-label="Delete task"
+                        class="btn btn--delete"
+                        onclick="alert('Delete task?')"
+                    >
+                        <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M2 3.5h9M5 3.5V2h3v1.5M4.5 3.5l.5 7h3l.5-7"
+                                stroke="currentColor"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        Delete
+                    </button>
+                </footer>
+            </article>
+        </main>
+
+        <script src="index.js"></script>
+    </body>
+</html>
